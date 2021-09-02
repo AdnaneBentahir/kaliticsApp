@@ -103,7 +103,7 @@ class ChantierController extends AbstractController
 
     /**
      * 
-     * @Route("/delete/{id}", name="chantier-delete")
+     * @Route("/chantier/delete/{id}", name="chantier-delete")
      */
     public function deleteChantier(Chantier $chantier, Request $request, EntityManagerInterface $manager){
         $manager->remove($chantier);

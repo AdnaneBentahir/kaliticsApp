@@ -6,29 +6,15 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
-        in_database:
-            entity: 
-                class: App\Entity\User
-                property: nom
-        # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            entity:
-                class: App\Entity\User
-                property: nom
-        # used to reload user from session & other features (e.g. switch_user)
+
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous : lazy
-            provider: in_database
 
-            guard:
-                authenticators:
-                    - App\Security\LoginAuthenticator
-            logout:
-                path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
             # activate different ways to authenticate

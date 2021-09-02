@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for user in users %}
+        {{ user.nom  }} , {{ user.prenom }} , {{ user.matricule }}
+        <form action="{{ path('user-edit', { 'id': user.id }) }}">
+            <input type="submit" value= "Modifier les details" />
+        </form></p>
+        <form action="{{ path('user-delete', { 'id': user.id }) }}">
+            <input type="submit" value="Supprimer"  />
+        </form></p>
+        <br>
+    {% endfor %}
+    <form action="{{ path('user-create') }}">
+        <input type="submit" value = "Créer un user" />
+    </form></p>
+
+{% endblock %}
