@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     {% for pointage in pointages %}
+        {{ pointage.utilisateur.nom  }} {{ pointage.utilisateur.prenom  }} a pointé le {{ pointage.getDateP | date('d/m/y') }} au chantier {{ pointage.chantier.nom }} pour {{ pointage.duree }} heures.
+        <br>
+    {% endfor %} 
+    <form action="{{ path('pointage-create') }}">
+        <input type="submit" value = "Créer un pointage" />
+    </form></p>
+
+{% endblock %}

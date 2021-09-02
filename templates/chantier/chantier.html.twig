@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for chantier in chantiers %}
+        {{ chantier.nom  }} commence à {{ chantier.adresse }} le {{ chantier.getDateDebut | date('d/m/y') }}
+        {#nombre de pointages :{{ nbrPointages }}
+        heures cumulées : {{ cumulHeures }}#}
+        <form action="{{ path('chantier-edit', { 'id': chantier.id }) }}">
+            <input type="submit" value= "Modifier les details" />
+        </form></p>
+        <form action="{{ path('chantier-delete', { 'id': chantier.id }) }}">
+            <input type="submit" value="Supprimer"  />
+        </form></p>
+        <br>
+    {% endfor %}
+    <form action="{{ path('chantier-create') }}">
+        <input type="submit" value = "Créer un chantier" />
+    </form></p>
+
+{% endblock %}
